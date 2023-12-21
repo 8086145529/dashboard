@@ -1,38 +1,283 @@
-.App {
-  text-align: center;
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #ffff;
+  color: #19191a;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid-container{
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas: 
+  'sidebar header header header'
+  'sidebar main main main';
+  height: 100vh;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Nav bar */
+.head{
+  display:flex;
+  background-color: white;
+  border: #ffff 1px;
+  margin-left: 10rem;
+  border-radius: .5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dropdown{
+  width:20px;
+  height:20px;
+  margin-top:20px;
+
+}
+
+.header{
+  grid-area: header;
+  margin-right:170px;
+  height: 60px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 10px 30px 10px 30px;
+  box-shadow: 0 6px 7px -3px rgba(0, 0,0, 0.35);
+  /* z-index: 14 */
+}
+.header img{
+
+ height:70px
+}
+.menu-icon{
+  display: none;
 }
 
-.App-link {
-  color: #61dafb;
+/* Sidebar */
+.profilepic{
+  width: 7rem;
+ clip-path: circle();
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.arrow{
+  color:rgb(27, 102, 183);
+  cursor:pointer;
 }
+
+.icon{
+  /* margin-bottom: 2rem; */
+  
+    display: inline-block; 
+    vertical-align: middle; 
+    margin-right: 10px; 
+} 
+
+.icon-faq{
+  display: inline-block; 
+  vertical-align: middle; 
+  margin-left: -15px;
+}
+.iconanchor{
+display: block;
+text-align: center;
+text-decoration: none;
+
+}
+
+#sidebar{
+  grid-area: sidebar;
+  /* margin-top: 80px; */
+  height: 100%;
+  background-color: #ffff;
+  /* overflow-y: auto; */
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title{
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  padding: 15px 30px 0px 30px;
+  margin-bottom: 30px;
+}
+
+.sidebar-details{
+ /* margin-bottom: 2rem; */
+ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+width: 230px;
+padding-bottom: 2rem;
+text-align: center;
+/* display: flex;
+align-items: center;
+flex-direction: column; */
+}
+
+.sidebar-details > h3,h4{
+  margin: 0px;
+  
+}
+.sidebar-list{
+  padding: 0;
+  list-style-type: none;
+
+}
+
+.sidebar-list-item{
+   padding: 10px 10px ;
+   font-size: 18px;
+   border: 2px #eaeaf4 groove;
+   height: 25px;
+   border-radius: .5rem;
+  
+}
+
+.sidebar-list-item:hover{
+  background-color: rgb(94, 190, 234);
+  cursor: pointer;
+  color: #19191a;
+}
+
+.sidebar-list-item > a {
+  text-decoration: none;
+  color: #19191a;
+}
+
+.sidebar-responsive{
+  display: inline !important;
+  position: absolute;
+
+  /* we want the z-index of the sidebar higher so that the charts are not showing over the sidebar on small screen */
+  z-index: 12 !important;
+
+}
+
+
+
+/* Home */
+
+.container{
+  grid-area: main;
+  height: 100%;
+  background-color: #ffff;
+  width: 1274px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  /* width: 100vh; */
+}
+
+.heading > h2{
+  margin-left: 3rem;
+}
+
+.switch{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+/* card */
+
+.line{
+  width: 280px;
+  margin-top: 20px;
+}
+.line::before,.line::after{
+  content: "";
+    height: 1px;
+    background-color: #b1acac;
+    display: block;
+}
+.button{
+  padding: 10px 10px;
+  border: #eaeaf4;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-evenly;
+}
+.card{
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+
+}
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.features{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.feature-item span {
+  margin-left: 5px;
+  overflow: hidden;
+  /* Optionally add ellipsis (...) for overflowed text */
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.caption{
+  background-color: #b2ff9e;
+  border: #ffffff;
+  border-radius: 8px;
+  padding: 5px;
+}
+/* .first  .button{
+  border: #ffffff;
+  border-radius: 8px;
+} */
+
+/* Bottom card */
+
+.BottomCard{
+  display: flex;
+  width: 540px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  margin-left: 80px;
+  margin-top: 20px;
+}
+.bottom-main{
+  display: flex;
+  justify-content: space-around;
+ 
+}
+
+.BottomCard:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.second{
+  width: 200px;
+  margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
